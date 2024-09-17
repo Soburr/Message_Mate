@@ -68,8 +68,6 @@ return [
 
     'dropdown' => Config::dropdown(),
 
-    'wui-dropdown' => Config::dropdown(),
-
     'icon' => Config::icon(),
 
     'input' => Config::wrapper(),
