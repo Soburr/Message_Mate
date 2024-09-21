@@ -17,19 +17,19 @@ class NoteSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::first();
-        if ($user) {
-           for($i=0; $i < 10; $i++) {
-             Note::create([
-                'id' => (string) Str::uuid(),
-                'user_id' => $user->id,
-                'title' => 'Note title' . ($i + 1),
-                'body' => 'Body of the note' . ($i + 1),
-                'send_date' => Carbon::now()->addDays(rand(1,30))
-             ]);
-           }
-        } else {
-            $this->command->info('no signed in user');
-        }
+        // $user = User::first();
+        // if ($user) {
+        //    for($i=0; $i < 10; $i++) {
+        //      Note::create([
+        //         'id' => (string) Str::uuid(),
+        //         'user_id' => $user->id,
+        //         'title' => 'Note title' . ($i + 1),
+        //         'body' => 'Body of the note' . ($i + 1),
+        //         'send_date' => Carbon::now()->addDays(rand(1,30))
+        //      ]);
+        //    }
+        // } else {
+        //     $this->command->info('no signed in user');
+        // }
     }
 }
