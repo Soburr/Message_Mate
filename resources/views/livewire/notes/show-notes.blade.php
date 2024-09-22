@@ -33,10 +33,12 @@ new class extends Component {
 
                <div class="flex items-end justify-between mt-4 space-x-1">
                   <p class="text-xs">Recipient: <span class="font-semibold"> {{ $note->recipient }} </span> </p>
-                  <div>
+
+                  <div style="display: flex; gap: 10px;">
                     <x-ibutton icon="eye"></x-ibutton>
                     <x-ibutton icon="trash"></x-ibutton>
                   </div>
+                  
                </div>
            </x-card>
          @endforeach
