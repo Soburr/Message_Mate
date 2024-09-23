@@ -34,8 +34,8 @@ new class extends Component {
            <x-card wire:key='{{ $note->id }}'>
                <div class="flex justify-between">
                   <div>
-                    <a href="#" class="text-xl font-bold hover:underline hover:text-blue-500">{{ $note->title }}</a>
-                    <p class="text-xs mt-2">{{ Str::limit($note->body, 50) }}</p>
+                    <a href="{{ route('notes.edit', $note) }}" wire:navigate class="text-xl font-bold hover:underline hover:text-blue-500">{{ $note->title }}</a>
+                    <p class="mt-2 text-xs">{{ Str::limit($note->body, 50) }}</p>
                   </div>
                   <div class="text-xs-gray-500">
                     {{ \Carbon\Carbon::parse($note->send_date)->format('M-d-y') }}
