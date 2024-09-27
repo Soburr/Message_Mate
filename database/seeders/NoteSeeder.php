@@ -17,6 +17,15 @@ class NoteSeeder extends Seeder
      */
     public function run(): void
     {
+
+        User::all()->each(function (User $user) {
+            Note::factory()->count(10)->create([
+                'user_id' => $user->id
+            ]);
+        });
+
+
+
         // $user = User::first();
         // if ($user) {
         //    for($i=0; $i < 10; $i++) {
