@@ -32,7 +32,8 @@ class SendEmail implements ShouldQueue
 
         Mail::raw($emailContent, function($message) {
             $message->from('sendnotes@zimfy/co', 'Sendnotes')
-                     -to()
+                     ->to($this->note->recipient)
+                     ->subject('You have a new note from' . $this->note->user->name)
         });
     }
 }
