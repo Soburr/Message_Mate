@@ -11,7 +11,7 @@ use Illuminate\Queue\SerializesModels;
 
 class SendEmail implements ShouldQueue
 {
-    use Queueable;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
      * Create a new job instance.
@@ -26,6 +26,13 @@ class SendEmail implements ShouldQueue
      */
     public function handle(): void
     {
-        //
+        $noteUrl = config('app.url') . '/notes/' . $this->note->id;
+
+        $emailContent = "Hello, you've received a new note. View it here: {$noteUrl}";
+
+        Mail::raw($emailContent, function($message) {
+            $message->from('sendnotes@zimfy/co', 'Sendnotes')
+                     -to()
+        });
     }
 }
